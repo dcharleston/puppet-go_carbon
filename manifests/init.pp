@@ -16,6 +16,7 @@ class go_carbon(
   $download_package               = $go_carbon::params::download_package,
   $shell                          = $go_carbon::params::shell,
   $max_cpu                        = $go_carbon::params::max_cpu,
+  $whisper_data_dir               = $go_carbon::params::whisper_data_dir,
   $whisper_workers                = $go_carbon::params::whisper_workers,
   $whisper_max_updates_per_second = $gocarbon::params::whisper_max_updates_per_second,
   $whisper_max_creates_per_second = $gocarbon::params::whisper_max_creates_per_second	
