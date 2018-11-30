@@ -96,6 +96,7 @@ define go_carbon::instance(
   $executable = $go_carbon::executable
   $config_dir = $go_carbon::config_dir
   $user       = $go_carbon::user
+  $group      = $go_carbon::group
 
   file {
     "${go_carbon::config_dir}/${service_title}.conf":
