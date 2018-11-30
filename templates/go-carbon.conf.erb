@@ -31,7 +31,6 @@ hard-max-creates-per-second = false
 sparse-create = false
 # use flock on every file call (ensures consistency if there are concurrent read/writes to the same file)
 flock = false
-enabled = true
 # Use hashed filenames for tagged metrics instead of human readable
 # https://github.com/lomik/go-carbon/pull/225
 hash-filenames = true
@@ -45,7 +44,7 @@ max-size = <%= @cache_max_size %>
 #   "sorted" - sort by timestamp of first unwritten datapoint.
 #   "noop" - pick metrics to write in unspecified order,
 #            requires least CPU and improves cache responsiveness
-write-strategy = <%= @cache_write_strategy %>
+write-strategy = "<%= @cache_write_strategy %>"
 
 [udp]
 listen = "<%= @udp_listen %>"
