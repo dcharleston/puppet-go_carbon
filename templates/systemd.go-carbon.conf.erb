@@ -1,16 +1,19 @@
 [Unit]
 Description= Golang implementation of Graphite/Carbon server
-Wants=basic.target
-After=basic.target network.target
+Documentation=https://github.com/lomik/go-carbon
+After=network.target
 
 [Service]
-Environment="GOMAXPROCS=<%= @go_maxprocs %>"
-ExecStart=<%= @executable %> --config <%= @config_dir %>/<%= @service_name %>.conf
+Type=forking
+ExecStart=<%= @executable %> -config <%= @config_dir %>/<%= @service_name %>.conf -pidfile /var/run/<%= @service_name %>.pid -daemon
 ExecReload=/bin/kill -HUP $MAINPID
-KillMode=process
+KillSignal=USR2
 Restart=on-failure
+
+TimeoutStopSec=600
+LimitNOFILE=55555
+LimitMEMLOCK=infinity
 User=<%= @user %>
-Group=<%= @group %>
 
 [Install]
 WantedBy=multi-user.target
