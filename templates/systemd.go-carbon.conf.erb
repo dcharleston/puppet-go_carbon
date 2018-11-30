@@ -4,8 +4,7 @@ Documentation=https://github.com/lomik/go-carbon
 After=network.target
 
 [Service]
-Type=forking
-ExecStart=<%= @executable %> -config <%= @config_dir %>/<%= @service_name %>.conf -pidfile /var/run/<%= @service_name %>.pid -daemon
+ExecStart=<%= @executable %> -config <%= @config_dir %>/<%= @service_name %>.conf
 ExecReload=/bin/kill -HUP $MAINPID
 KillSignal=USR2
 Restart=on-failure
